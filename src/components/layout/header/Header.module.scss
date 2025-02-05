@@ -4,6 +4,8 @@
   background: #202562;
   height: 124px;
   width: 100%;
+  position: fixed;
+  z-index: 99999;
 
   .content {
     display: flex;

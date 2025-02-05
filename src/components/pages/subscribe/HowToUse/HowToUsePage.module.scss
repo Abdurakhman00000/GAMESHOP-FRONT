@@ -1,5 +1,6 @@
 .Main {
   margin-top: 40px;
+  margin-bottom: 50px;
   .content {
     display: flex;
     flex-direction: column;
@@ -7,7 +8,7 @@
     gap: 20px;
 
     h1 {
-      font-size: 32px;
+      font-size: 32px; 
       font-weight: 700;
       line-height: 39.01px;
       letter-spacing: -0.02em;
@@ -18,7 +19,7 @@
     .how_to_use {
       position: relative;
       display: flex;
-      align-items: center;
+      align-items: center !important;
       gap: 50px;
 
       .Doll_div {
@@ -53,6 +54,7 @@
         width: 282px;
         height: 130px;
         border: 1px solid black;
+        margin-left: 90px;
 
         h3 {
           font-size: 18px;
