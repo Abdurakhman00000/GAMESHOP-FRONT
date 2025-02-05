@@ -1,0 +1,55 @@
+.content {
+
+    h2 {
+        color: rgb(32, 37, 98);
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+
+    .boxes {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 9px;
+
+        .box {
+            border-radius: 15px;
+            background: rgb(32, 37, 98);
+            padding: 10px 10px;
+            height: 124px;
+
+            h4 {
+                font-size: 13px;
+                font-weight: 600;
+                color: white;
+            }
+
+            p {
+                font-size: 12px;
+                font-weight: 400;
+                color: white;
+            }
+        }
+    }
+}
+
+
+@media(max-width: 750px) {
+    .content {
+
+        h2 {
+            text-align: center;
+            margin-top: 10px;
+        }
+    
+    
+        .boxes {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 9px;
+        }
+    }
+}

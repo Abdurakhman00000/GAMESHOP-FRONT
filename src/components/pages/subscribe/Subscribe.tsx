@@ -11,8 +11,8 @@ const Subscribe = () => {
       <SubHeroPage />
       <PsPlusPage />
       <HowToUsePage />
-      {/* <PsPlusEssPage/> */}
-      {/* <SubFAQPage/> */}
+      <PsPlusEssPage/>
+      <SubFAQPage/>
     </>
   );
 };
