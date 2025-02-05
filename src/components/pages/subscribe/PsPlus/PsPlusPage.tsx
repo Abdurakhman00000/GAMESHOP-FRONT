@@ -8,7 +8,7 @@ import BottomContent from './Bottom-content/BottomContent'
 
 const PsPlusPage = () => {
   return (
-    <section className={scss.Main}>
+    <section className={scss.Main}> 
         <div className="container">
             <div className={scss.content}>
                 <h1>PlayStation Plus</h1>
