@@ -1,7 +1,7 @@
 import React from 'react'
 import scss from "./SubHeroPage.module.scss"
-import gameConsole from "../../../../../public/images/heroSub-imgs/game-console.png";
-import gameConsolePlus from "../../../../../public/images/heroSub-imgs/game-console-plus.png";
+import gameConsole from "../../../../../public/images/heroSub-imgs/cool_img2.svg";
+import gameConsolePlus from "../../../../../public/images/heroSub-imgs/cool_img3.svg";
 import Image from 'next/image';
 
 const SubHeroPage = () => {
