@@ -15,7 +15,6 @@
     img {
       width: 120px;
       height: 72px;
-      fill: white;
     }
 
     .headers {
@@ -24,18 +23,32 @@
       gap: 8px;
       cursor: pointer;
 
-      img {
+      .navIcon {
         width: 22px;
         height: 22px;
+        transition: filter 0.3s ease;
+      }
+
+      &:hover,
+      &.active {
+        a {
+          color: #fee44e;
+          transition: all 0.3s ease;
+        }
+
+        .navIcon {
+          filter: invert(20%) sepia(62%) saturate(426%) hue-rotate(338deg)
+            brightness(103%) contrast(98%);
+        }
       }
 
       a {
-        font-family: Montserrat;
+        text-decoration: none;
         font-size: 16px;
         font-weight: 500;
         line-height: 19.5px;
-        text-decoration-skip-ink: none;
         color: #ffffff;
+        transition: color 0.3s ease-out;
       }
     }
 
@@ -44,7 +57,6 @@
       align-items: center;
       width: 220px;
       height: 40px;
-
       border: none;
       outline: none;
       border-radius: 12px;
@@ -52,6 +64,7 @@
       color: white;
       padding-left: 10px;
       font-size: 16px;
+
       input {
         width: 85%;
         height: 100%;
