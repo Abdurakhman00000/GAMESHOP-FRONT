@@ -1,42 +1,83 @@
-import React from "react";
-import scss from "./SubFAQPage.module.scss";
+'use client';
+import React, { useState, useRef, useCallback, useMemo } from 'react';
+import styles from './SubFAQPage.module.scss';
+import { faqData } from './constants';
 
-const SubFAQPage = () => {
-  return (
-    <section className={scss.main}>
-      <div className="container">
-        <h2 className={scss.title}>Часто задаваемые вопросы</h2>
-        <div className={scss.faqGrid}>
-          <div className={scss.faqItem}>
-            <span>Как подключается подписка?</span>
-            <button className={scss.plusBtn}>+</button>
-          </div>
+const SubFAQPage: React.FC = () => {
+	const [activeIndex, setActiveIndex] = useState<number | null>(null);
+	const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-          <div className={scss.faqItem}>
-            <span>Как подключается подписка?</span>
-            <button className={scss.plusBtn}>+</button>
-          </div>
+	const toggleAccordion = useCallback((index: number) => {
+		setActiveIndex(prevIndex => (prevIndex === index ? null : index));
+	}, []);
 
-          <div className={scss.faqItem}>
-            <span>Как подключается подписка?</span>
-            <button className={scss.plusBtn}>+</button>
-          </div>
+	const setItemRef = useCallback(
+		(index: number) => (el: HTMLDivElement | null) => {
+			itemRefs.current[index] = el;
+		},
+		[]
+	);
 
-          <div className={scss.faqItem}>
-            <span>
-              Как подключается подписка? Lorem ipsum dolor sit amet, consectetur
-            </span>
-            <button className={scss.plusBtn}>+</button>
-          </div>
+	const faqItems = useMemo(
+		() =>
+			faqData.map((item, index) => ({
+				item,
+				index,
+				isActive: activeIndex === index
+			})),
+		[activeIndex]
+	);
 
-          <div className={scss.faqItem}>
-            <span>Как подключается подписка?</span>
-            <button className={scss.plusBtn}>+</button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+	return (
+		<div className={styles.main}>
+			<div className='container'>
+				<h1 className={styles.title}>Часто задаваемые вопросы</h1>
+				<div className={styles.faqGridWrapper}>
+					<div className={styles.faqGrid}>
+						{faqItems.map(({ item, index, isActive }) => {
+							const itemRef = useRef<HTMLDivElement>(null);
+
+							return (
+								<div key={index} className={styles.faqItemWrapper}>
+									<div
+										ref={el => {
+											itemRef.current = el;
+											setItemRef(index)(el);
+										}}
+										className={`${styles.faqItem} ${
+											isActive ? styles.active : ''
+										}`}
+										onClick={() => toggleAccordion(index)}
+									>
+										{item.title}
+										<button
+											className={`${styles.plusBtn} ${
+												isActive ? styles.activeBtn : ''
+											}`}
+										>
+											+
+										</button>
+									</div>
+									{isActive && (
+										<div
+											className={styles.accordionContent}
+											style={{
+												width: itemRef.current
+													? `${itemRef.current.offsetWidth}px`
+													: 'auto'
+											}}
+										>
+											{item.content}
+										</div>
+									)}
+								</div>
+							);
+						})}
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default SubFAQPage;
