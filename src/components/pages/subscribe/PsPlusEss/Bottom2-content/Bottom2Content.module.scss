@@ -1,11 +1,9 @@
 .content {
-
     h2 {
         color: rgb(32, 37, 98);
         font-size: 16px;
         font-weight: 700;
     }
-
 
     .boxes {
         display: flex;
@@ -16,7 +14,7 @@
         .box {
             border-radius: 15px;
             background: rgb(32, 37, 98);
-            padding: 10px 10px;
+            padding: 10px;
             height: 124px;
 
             h4 {
@@ -29,17 +27,17 @@
                 font-size: clamp(1px, 2vw, 12px);
                 font-weight: 400;
                 color: white;
+                white-space: pre-line;
             }
         }
     }
 }
 
-
 @media(max-width: 767px) {
     .content {
         margin-top: 14px;
+
         .boxes {
-            display: flex;
             gap: 5px;
         }
     }
