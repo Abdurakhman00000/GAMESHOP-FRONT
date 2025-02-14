@@ -1,11 +1,10 @@
+// src/components/pages/subscribe/HowToUse/HowToUsePage.tsx
 import React from 'react';
-import scss from './HowToUsePage.module.scss';
 import Image from 'next/image';
-import doll_image from '/public/images/howToUse/doll_image.png';
-import TUehoosw from '/public/images/howToUse/Arrow_2.svg';
-import sony from '/public/images/howToUse/sony.png';
+import scss from './HowToUsePage.module.scss';
+import { CARDS_DATA, IMAGE_SIZES, IMAGES } from './components/constants/howToUse'
 
-const HowToUsePage = () => {
+const HowToUsePage: React.FC = () => {
 	return (
 		<section className={scss.Main}>
 			<div className='container'>
@@ -15,69 +14,38 @@ const HowToUsePage = () => {
 						<div className={scss.Doll_div}>
 							<Image
 								className={scss.Doll}
-								src={doll_image}
-								alt='doll'
-								width={700}
-								height={500}
-								quality={70}
+								src={IMAGES.DOLL}
+								alt='instruction-doll'
+								width={IMAGE_SIZES.LARGE.width}
+								height={IMAGE_SIZES.LARGE.height}
+								quality={IMAGE_SIZES.LARGE.quality}
 								priority
 							/>
 						</div>
-						<div className={scss.card_1}>
-							<h3>
-								Вы получаете <br /> логин и пароль от <br /> игрового аккаунта.
-							</h3>
-							<div className={scss.number}>
-								<h1>1</h1>
-								<Image
-									src={TUehoosw}
-									alt='img'
-									width={30}
-									height={20}
-									priority
-								/>
+
+						{CARDS_DATA.map(({ id, number, text }) => (
+							<div key={id} className={scss[`card_${number}`]}>
+								<h3>{text}</h3>
+								<div className={scss.number}>
+									<h1>{number}</h1>
+									<Image
+										src={IMAGES.ARROW}
+										alt={`step-${number}-arrow`}
+										width={IMAGE_SIZES.ARROW.width}
+										height={IMAGE_SIZES.ARROW.height}
+										priority
+									/>
+								</div>
 							</div>
-						</div>
-						<div className={scss.card_2}>
-							<h3>
-								Добавляете его на консоль, включаете <br /> активацию аккаунта
-								<br /> в настройках по <br /> инструкции.
-							</h3>
-							<div className={scss.number}>
-								<h1>2</h1>
-								<Image
-									src={TUehoosw}
-									alt='img'
-									width={30}
-									height={20}
-									priority
-								/>
-							</div>
-						</div>
-						<div className={scss.card_3}>
-							<h3>
-								После активации аккаунта подписка начинает работать на всех
-								аккаунтах вашей консоли!
-							</h3>
-							<div className={scss.number}>
-								<h1>3</h1>
-								<Image
-									src={TUehoosw}
-									alt='img'
-									width={30}
-									height={20}
-									priority
-								/>
-							</div>
-						</div>
+						))}
 
 						<Image
 							className={scss.Sony}
-							src={sony}
-							alt='doll'
-							width={700}
-							height={500}
-							quality={70}
+							src={IMAGES.SONY}
+							alt='sony-console'
+							width={IMAGE_SIZES.LARGE.width}
+							height={IMAGE_SIZES.LARGE.height}
+							quality={IMAGE_SIZES.LARGE.quality}
 							priority
 						/>
 					</div>

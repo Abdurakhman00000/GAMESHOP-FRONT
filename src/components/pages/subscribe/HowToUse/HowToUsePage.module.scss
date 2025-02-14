@@ -1,14 +1,16 @@
+// pages/HowToUsePage/HowToUsePage.module.scss
 .Main {
   margin-top: 40px;
   margin-bottom: 50px;
+
   .content {
     display: flex;
     flex-direction: column;
-
     gap: 20px;
 
     h1 {
-      font-size: 32px; 
+      width: 100%;
+      font-size: 32px;
       font-weight: 700;
       line-height: 39.01px;
       letter-spacing: -0.02em;
@@ -16,11 +18,13 @@
       text-decoration-skip-ink: none;
       color: #202562;
     }
+
     .how_to_use {
       position: relative;
-      display: flex;
-      align-items: center ;
-      gap: 50px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center !important;
+      padding-left: 50px;
 
       .Doll_div {
         width: 408.14px;
@@ -36,100 +40,8 @@
         }
       }
 
-      .Sony {
-        position: absolute;
-        top: -65px;
-        right: -126px;
-        width: 458.4px;
-        height: 458.4px;
-        object-fit: contain;
-      }
-
-      .card_1 {
-        padding: 10px 15px;
-        display: flex;
-        border-radius: 20px;
-        gap: 20px;
-        align-items: center;
-        width: 282px;
-        height: 130px;
-        border: 1px solid black;
-        margin-left: 90px;
-
-        h3 {
-          font-size: 18px;
-          font-weight: 600;
-          line-height: 19.5px;
-          letter-spacing: -0.02em;
-          text-align: left;
-          text-underline-position: from-font;
-          text-decoration-skip-ink: none;
-        }
-
-        .number {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-
-          h1 {
-            width: 39px;
-            height: 38px;
-            border-radius: 5px;
-            border: 1px solid black;
-            text-align: center;
-            font-size: 32px;
-            font-weight: 700;
-            line-height: 39.01px;
-            letter-spacing: -0.02em;
-            color: #202562;
-            text-underline-position: from-font;
-            text-decoration-skip-ink: none;
-          }
-        }
-      }
-
-      .card_2 {
-        padding: 10px 15px;
-        display: flex;
-        border-radius: 20px;
-        gap: 20px;
-        align-items: center;
-        width: 282px;
-        height: 130px;
-        border: 1px solid black;
-
-        h3 {
-          font-size: 17px;
-          font-weight: 600;
-          line-height: 19.5px;
-          letter-spacing: -0.02em;
-          text-align: left;
-          text-underline-position: from-font;
-          text-decoration-skip-ink: none;
-        }
-
-        .number {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-
-          h1 {
-            width: 39px;
-            height: 38px;
-            border-radius: 5px;
-            border: 1px solid black;
-            text-align: center;
-            font-size: 32px;
-            font-weight: 700;
-            line-height: 39.01px;
-            letter-spacing: -0.02em;
-            color: #202562;
-            text-underline-position: from-font;
-            text-decoration-skip-ink: none;
-          }
-        }
-      }
-
+      .card_1,
+      .card_2,
       .card_3 {
         padding: 10px 15px;
         display: flex;
@@ -141,9 +53,10 @@
         border: 1px solid black;
 
         h3 {
-          font-size: 17px;
+          max-width: 177px;
+          font-size: clamp(10px, 1.5vw, 16px);
+          line-height: clamp(12px, 16px, 19px);
           font-weight: 600;
-          line-height: 19.5px;
           letter-spacing: -0.02em;
           text-align: left;
           text-underline-position: from-font;
@@ -168,6 +81,150 @@
             color: #202562;
             text-underline-position: from-font;
             text-decoration-skip-ink: none;
+          }
+        }
+      }
+
+      .Sony {
+        position: absolute;
+        top: -65px;
+        right: -146px;
+        width: 458.4px;
+        height: 458.4px;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+@media (max-width: 990px) {
+  .Main {
+    .content {
+      .how_to_use {
+        grid-template-columns: repeat(2, 1fr);
+        padding-left: 0;
+        gap: 20px;
+
+        .Doll_div {
+          width: 400px;
+          height: 400px;
+          top: 30px;
+          left: -126px;
+
+          .Doll {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+
+        .Sony {
+          top: 30px;
+          right: -146px;
+          width: 400.4px;
+          height: 400.4px;
+        }
+
+        .card_1 {
+          justify-self: center;
+        }
+
+        .card_3 {
+          grid-column: span 2;
+          justify-self: center;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 620px) {
+  .Main {
+    .content {
+      .how_to_use {
+        grid-template-columns: repeat(2, 1fr);
+        padding-left: 0;
+        gap: 20px;
+
+        .Doll_div {
+          width: 350px;
+          height: 350px;
+          top: 70px;
+          left: -116px;
+        }
+
+        .Sony {
+          top: 50px;
+          right: -146px;
+          width: 350.4px;
+          height: 350.4px;
+        }
+
+        .card_1,
+        .card_2,
+        .card_3 {
+          height: 100px;
+          width: 200px;
+
+          h3 {
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 12px;
+            letter-spacing: -2%;
+          }
+
+          .number {
+            h1 {
+              width: 20px;
+              height: 20px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 12px;
+              font-weight: 700;
+              line-height: 39.01px;
+              letter-spacing: -0.02em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 455px) {
+  .Main {
+    .content {
+      .how_to_use {
+        grid-template-columns: repeat(2, 1fr);
+        padding-left: 0;
+        column-gap: 0px;
+
+        .Doll_div {
+          width: 300px;
+          height: 300px;
+          top: 30px;
+          left: -100px;
+        }
+
+        .Sony {
+          top: 40px;
+          right: -126px;
+          width: 300.4px;
+          height: 300.4px;
+        }
+
+        .card_1,
+        .card_2,
+        .card_3 {
+          height: 80px;
+          width: 170px;
+          padding: 6px 10px;
+          border-radius: 12px;
+
+          .number {
+            img {
+              width: 16px;
+            }
           }
         }
       }
