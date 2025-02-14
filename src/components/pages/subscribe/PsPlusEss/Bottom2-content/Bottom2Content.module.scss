@@ -2,7 +2,7 @@
 
     h2 {
         color: rgb(32, 37, 98);
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 700;
     }
 
@@ -20,13 +20,13 @@
             height: 124px;
 
             h4 {
-                font-size: 13px;
+                font-size: clamp(2px, 2vw, 13px);
                 font-weight: 600;
                 color: white;
             }
 
             p {
-                font-size: 12px;
+                font-size: clamp(1px, 2vw, 12px);
                 font-weight: 400;
                 color: white;
             }
@@ -35,21 +35,11 @@
 }
 
 
-@media(max-width: 750px) {
+@media(max-width: 767px) {
     .content {
-
-        h2 {
-            text-align: center;
-            margin-top: 10px;
-        }
-    
-    
         .boxes {
             display: flex;
-            align-items: center;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 9px;
+            gap: 5px;
         }
     }
 }
