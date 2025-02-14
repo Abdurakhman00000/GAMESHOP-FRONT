@@ -1,45 +1,61 @@
-import React from "react";
-import scss from "./RightContent.module.scss";
+'use client';
+import { memo } from 'react';
+import scss from './RightContent.module.scss';
+
+interface SubscriptionOption {
+	id: number;
+	months: number;
+	price: string;
+}
+
+const subscriptionOptions: SubscriptionOption[] = [
+	{ id: 1, months: 1, price: '740Р' },
+	{ id: 2, months: 3, price: '1690Р' },
+	{ id: 3, months: 12, price: '2890Р' }
+];
+
+const SubscriptionChoice = memo(
+	({ option }: { option: SubscriptionOption }) => (
+		<div
+			className={scss.choice}
+			tabIndex={0}
+			role='button'
+			aria-label={`Подписка на ${option.months} месяц за ${option.price}`}
+		>
+			<div className={scss.boxes}>
+				<div className={scss.box}>
+					<p>{option.id}</p>
+				</div>
+				<p>{option.months} месяц</p>
+			</div>
+			<h6>{option.price}</h6>
+		</div>
+	)
+);
+
+SubscriptionChoice.displayName = 'SubscriptionChoice';
 
 const RightContent = () => {
-  return (
-    <div className={scss.content}>
-      <h2>Длительность подписки</h2>
+	const handlePurchase = () => {
+		console.log('Покупка инициирована');
+		// Здесь может быть логика покупки
+	};
 
-      <div className={scss.choices}>
-        <div className={scss.choice} tabIndex={0}>
-          <div className={scss.boxes}>
-            <div className={scss.box}>
-              <p>1</p>
-            </div>
-            <p>1 месяц</p>
-          </div>
-          <h6>740Р</h6>
-        </div>
+	return (
+		<div className={scss.content}>
+			<h2>Длительность подписки</h2>
 
-        <div className={scss.choice} tabIndex={0}>
-          <div className={scss.boxes}>
-            <div className={scss.box}>
-              <p>2</p>
-            </div>
-            <p>3 месяц</p>
-          </div>
-          <h6>1690Р</h6>
-        </div>
+			<div className={scss.choices}>
+				{subscriptionOptions.map(option => (
+					<SubscriptionChoice key={option.id} option={option} />
+				))}
 
-        <div className={scss.choice} tabIndex={0}>
-          <div className={scss.boxes}>
-            <div className={scss.box}>
-              <p>3</p>
-            </div>
-            <p>12 месяц</p>
-          </div>
-          <h6>2890Р</h6>
-        </div>
-        <button>Купить</button>
-      </div>
-    </div>
-  );
+				<button onClick={handlePurchase} type='button'>
+					Купить
+				</button>
+			</div>
+		</div>
+	);
 };
 
-export default RightContent;
+export default memo(RightContent);
