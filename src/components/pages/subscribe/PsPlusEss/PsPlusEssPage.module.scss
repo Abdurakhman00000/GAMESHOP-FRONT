@@ -69,12 +69,21 @@
         .content {
             .ps_block {
                 display: flex;
-                flex-direction: column-reverse;
-                gap: 30px;
+                flex-direction: column;
+                gap: 20px;
 
                 .left_content {
-                    display: none;
+                    width: 100%;
+                    height: 160px;
+                    border-radius: 17px;
+
+                    img {
+                        width: 100%;
+                        height: 160px;
+                    }
                 }
+
+                
             }
         }
     }
@@ -95,7 +104,7 @@
                 margin-top: 30px;
                 .right_content {
                     width: 100%;
-                    height: 990px;
+                    height: 580px;
                     border: 1px solid rgb(32, 37, 98);
                     border-radius: 30px;
                     padding: 15px 20px;
