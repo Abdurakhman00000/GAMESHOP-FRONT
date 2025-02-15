@@ -6,14 +6,8 @@ import Left2Content from './Left2-content/Left2Content';
 import Right2Content from './Right2-content/Right2Content';
 import Bottom2Content from './Bottom2-content/Bottom2Content';
 
-const PageHeader = memo(() => (
-	<>
-		<h1>PlayStation Plus</h1>
-		<h3>Выберите подходящую подписку</h3>
-	</>
-));
 
-PageHeader.displayName = 'PageHeader';
+
 
 const LeftBlock = memo(() => (
 	<div className={scss.left_content}>
@@ -48,7 +42,6 @@ const PsPlusEssPage = () => {
 		<section className={scss.Main}>
 			<div className='container'>
 				<div className={scss.content}>
-					<PageHeader />
 					<div className={scss.ps_block}>
 						<LeftBlock />
 						<RightBlock />
