@@ -1,0 +1,127 @@
+.burgerMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    position: fixed;
+    top: 31px;
+    left: 20px; 
+    z-index: 1000;
+    transition: transform 0.5s ease-in-out;
+  
+    &.active {
+      transform: rotate(360deg);
+    }
+  
+    div {
+      width: 100%;
+      height: 3px;
+      background-color: white;
+      transition: all 0.4s ease;
+      border-radius: 5px;
+    }
+  
+    &.active {
+      .line1 {
+        transform: rotate(45deg) translate(6px, 6px);
+        background-color: #fee44e;
+      }
+  
+      .line2 {
+        opacity: 0;
+      }
+  
+      .line3 {
+        transform: rotate(-45deg) translate(6px, -6px);
+        background-color: #fee44e;
+      }
+    }
+  }
+  
+  .navMenu {
+    position: fixed;
+    top: 90px;
+    left: 20px; // Перемещение контента на левый угол
+    width: 360px;
+    height: 300px;
+    background: #202662eb;
+    border: 1px solid #fee44e;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease, opacity 0.3s;
+    opacity: 0;
+    border-radius: 8px;
+  
+    &.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  
+    ul {
+      list-style: none;
+      padding: 0;
+  
+      li {
+        margin: 20px 0;
+  
+        a {
+          color: #fff;
+          font-size: 1rem;
+          font-weight: bold;
+          text-decoration: none;
+          transition: color 0.3s;
+  
+          &:hover {
+            color: #fee44e;
+          }
+        }
+      }
+
+
+
+      h4 {
+        color: #fee44e;
+        font-size: 1rem;
+        font-weight: bold;
+        margin-top: 30px;
+        margin-bottom: 14px;
+      }
+
+      .input_div {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 45px;
+        border: none;
+        border: 1px solid #fee44e;
+        outline: none;
+        border-radius: 12px;
+        background: #282e79;
+        color: white;
+        padding-left: 10px;
+        font-size: 16px;
+  
+        input {
+          width: 85%;
+          height: 100%;
+          border: none;
+          outline: none;
+          background: none;
+          color: white;
+        }
+  
+        svg {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  
+  
+  
+ 

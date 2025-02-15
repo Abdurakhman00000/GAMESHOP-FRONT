@@ -1,1 +1,159 @@
-.Footer {}
+.Footer {
+  height: 140px;
+  background: #202562;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+      width: 120px;
+      height: 72px;
+      fill: white;
+    }
+
+    .footer_end {
+      display: flex;
+      align-items: center;
+      gap: 90px;
+
+      p {
+        cursor: pointer;
+        font-size: 19px;
+        font-weight: 600;
+        line-height: 24.38px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .Footer {
+    .content {
+      .footer_end {
+        gap: 60px;
+
+        p {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .Footer {
+    height: 120px;
+
+    .content {
+      img {
+        width: 100px;
+        height: 60px;
+      }
+
+      .footer_end {
+        gap: 40px;
+
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .Footer {
+    height: 100px;
+
+    .content {
+      img {
+        width: 80px;
+        height: 48px;
+      }
+
+      .footer_end {
+        gap: 20px;
+
+        p {
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .Footer {
+    height: 80px;
+
+    .content {
+      img {
+        width: 60px;
+        height: 36px;
+      }
+
+      .footer_end {
+        gap: 15px;
+
+        p {
+          font-size: 12px;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .Footer {
+    height: 70px;
+
+    .content {
+      img {
+        width: 50px;
+        height: 30px;
+      }
+
+      .footer_end {
+        gap: 10px;
+
+        p {
+          font-size: 8px;
+          line-height: 12px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .Footer {
+    height: 60px;
+
+    .content {
+      img {
+        width: 40px;
+        height: 24px;
+      }
+
+      .footer_end {
+        gap: 8px;
+
+        p {
+          font-size: 7px;
+          line-height: 10px;
+        }
+      }
+    }
+  }
+}
