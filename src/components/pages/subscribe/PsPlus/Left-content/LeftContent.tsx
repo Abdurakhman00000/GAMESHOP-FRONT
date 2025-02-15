@@ -1,93 +1,60 @@
-'use client';
-import React, { memo, useState, useEffect } from 'react';
-import Image from 'next/image';
-import scss from './LeftContent.module.scss';
-import { useSubsServicesQuery } from '@/redux/api/subs-data';
+"use client";
 
-const PLAYSTATION_PLUS_ESSENTIAL = 'PlayStation Plus Essential';
-const CONSOLES = {
-	PS4: 1,
-	PS5: 2
-} as const;
-
-const ConsoleButton = memo(({ consoleId }: { consoleId: number }) => (
-	<button>{consoleId === CONSOLES.PS4 ? 'PS4' : 'PS5'}</button>
-));
-
-ConsoleButton.displayName = 'ConsoleButton';
-
-const SubscriptionLevels = memo(() => (
-	<div className={scss.levelSub_btn}>
-		<button>Essential</button>
-		<button>Extra</button>
-		<button>Deluxe</button>
-	</div>
-));
-
-SubscriptionLevels.displayName = 'SubscriptionLevels';
-
-const LoadingState = () => (
-	<div className={scss.content}>
-		<div>Загрузка...</div>
-	</div>
-);
-
-const ErrorState = () => (
-	<div className={scss.content}>
-		<div>Произошла ошибка при загрузке данных!</div>
-	</div>
-);
+import React, { useState, useEffect } from "react";
+import scss from "./LeftContent.module.scss";
+import Image from "next/image";
+import { useSubsServicesQuery } from "@/redux/api/subs-data";
+import { SUBS } from "@/redux/api/subs-data/types";
 
 const LeftContent = () => {
-	const { data, error, isLoading } = useSubsServicesQuery();
-	const [selectedService, setSelectedService] = useState<
-		SUBS.GetSubsServicesResponse[number] | null
-	>(null);
+  const { data, error, isLoading } = useSubsServicesQuery();
+  const [selectedService, setSelectedService] = useState<SUBS.GetSubsServicesResponse[number] | null>(null);
 
-	useEffect(() => {
-		if (data?.length) {
-			const service = data.find(
-				service => service.name === PLAYSTATION_PLUS_ESSENTIAL
-			);
-			setSelectedService(service || null);
-		}
-	}, [data]);
+  useEffect(() => {
+    if (data) {
+      setSelectedService(data.find(service => service.name === "PlayStation Plus Essential") || null);
+    }
+  }, [data]);
 
-	if (isLoading) return <LoadingState />;
-	if (error) return <ErrorState />;
-	if (!selectedService)
-		return <div className={scss.content}>Сервис не найден.</div>;
+  if (isLoading) {
+    return <div>Загрузка...</div>;
+  }
 
-	return (
-		<div className={scss.content}>
-			<h2>{selectedService.name}</h2>
+  if (error) {
+    return <div>Произошла ошибка при загрузке данных!</div>;
+  }
 
-			<div className={scss.subGame}>
-				<Image
-					src='/images/ps-plus/cool_img.svg'
-					alt='Игры по подписке'
-					width={20}
-					height={20}
-					loading='lazy'
-				/>
-				<p>Игры по подписке</p>
-			</div>
+  if (!selectedService) {
+    return <div>Сервис не найден.</div>;
+  }
 
-			<div className={scss.console}>
-				<h4>Консоль</h4>
-				<div className={scss.console_btn}>
-					{selectedService.consoles.map(consoleId => (
-						<ConsoleButton key={consoleId} consoleId={consoleId} />
-					))}
-				</div>
-			</div>
+  return (
+    <div className={scss.content}>
+      <h2>{selectedService.name}</h2>
 
-			<div className={scss.level_subs}>
-				<h4>Уровень подписки</h4>
-				<SubscriptionLevels />
-			</div>
-		</div>
-	);
+      <div className={scss.subGame}>
+        <Image src="/images/ps-plus/cool_img.svg" alt="Игры по подписке" width={20} height={20} />
+        <p>Игры по подписке</p>
+      </div>
+
+      <div className={scss.console}>
+        <h4>Консоль</h4>
+        <div className={scss.console_btn}>
+          {selectedService.consoles.includes(1) && <button>PS4</button>}
+          {selectedService.consoles.includes(2) && <button>PS5</button>}
+        </div>
+      </div>
+
+      <div className={scss.level_subs}>
+        <h4>Уровень подписки</h4>
+        <div className={scss.levelSub_btn}>
+          {selectedService.choices_level.split(",").map((level) => (
+            <button key={level.trim()}>{level.trim()}</button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
-export default memo(LeftContent);
+export default LeftContent;
