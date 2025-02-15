@@ -1,0 +1,21 @@
+
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo {
+            img {
+                width: 100px;
+                height: 62px;
+            }
+        }
+
+
+        .basket {
+            img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
