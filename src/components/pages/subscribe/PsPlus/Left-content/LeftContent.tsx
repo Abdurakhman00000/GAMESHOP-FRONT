@@ -48,9 +48,9 @@ const LeftContent = () => {
       <div className={scss.level_subs}>
         <h4>Уровень подписки</h4>
         <div className={scss.levelSub_btn}>
-          {selectedService.choices_level.split(",").map((level) => (
-            <button key={level.trim()}>{level.trim()}</button>
-          ))}
+            <button>Essential</button>
+            <button>Extra</button>
+            <button>Deluxe</button>
         </div>
       </div>
     </div>
