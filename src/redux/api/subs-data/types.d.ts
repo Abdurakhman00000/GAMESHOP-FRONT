@@ -1,5 +1,5 @@
-namespace SUBS {
-    export type GetSubsServicesResponse = {
+export namespace SUBS {
+    type GetSubsServicesResponse = {
       id: number;
       name: string;
       consoles: number[];
@@ -15,6 +15,6 @@ namespace SUBS {
       }[];
     }[];
   
-    export type GetSubsServicesRequest = void;
+    type GetSubsServicesRequest = void;
   }
   

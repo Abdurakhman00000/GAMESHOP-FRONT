@@ -1,4 +1,5 @@
 import {api as index} from "..";
+import { SUBS } from "./types";
 
 const api = index.injectEndpoints({
     endpoints: (build) => ({
