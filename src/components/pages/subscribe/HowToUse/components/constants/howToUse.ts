@@ -5,7 +5,7 @@ interface CardType {
 	text: string;
 }
 
-export const CARDS_DATA: CardType[] = [
+export const CARD: CardType[] = [
 	{
 		id: 1,
 		number: 1,

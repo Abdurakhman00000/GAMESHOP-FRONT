@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import scss from './HowToUsePage.module.scss';
-import { CARDS_DATA, IMAGE_SIZES, IMAGES } from './components/constants/howToUse'
+import { CARD, IMAGE_SIZES, IMAGES } from './components/constants/howToUse'
 
 const HowToUsePage: React.FC = () => {
 	return (
@@ -23,7 +23,7 @@ const HowToUsePage: React.FC = () => {
 							/>
 						</div>
 
-						{CARDS_DATA.map(({ id, number, text }) => (
+						{CARD.map(({ id, number, text }) => (
 							<div key={id} className={scss[`card_${number}`]}>
 								<h3>{text}</h3>
 								<div className={scss.number}>

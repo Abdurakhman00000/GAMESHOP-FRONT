@@ -2,9 +2,9 @@
 import React from 'react';
 import Image from 'next/image';
 import scss from './Card.module.scss';
-import { CardData, IMAGE_SIZES, IMAGES } from '../constants/howToUse'
+import { CARD, IMAGE_SIZES, IMAGES } from '../constants/howToUse'
 
-type CardProps = Omit<CardData, 'id'>;
+type CardProps = Omit<typeof CARD[0], 'id'>;
 
 const Card: React.FC<CardProps> = ({ number, text }) => (
 	<div className={scss.card}>
