@@ -10,7 +10,7 @@
 
 	h3 {
 		max-width: 177px;
-		font-size: clamp(10px, 1.5vw, 16px);
+		font-size: clamp(12px, 1.5vw, 16px);
 		line-height: clamp(12px, 16px, 19px);
 		font-weight: 600;
 		letter-spacing: -0.02em;
@@ -61,9 +61,14 @@
 @media (max-width: 455px) {
 	.card {
 		height: 80px;
-		width: 140px;
+		width: 60px;
 		padding: 6px 8px;
 		border-radius: 12px;
+
+		h3 {
+			font-size: 8px;
+			line-height: 12px;
+		}
 
 		.number img {
 			width: 16px;

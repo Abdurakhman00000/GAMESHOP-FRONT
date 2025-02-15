@@ -207,23 +207,76 @@
         }
 
         .Sony {
-          top: 50px;
-            right: -50px;
-            width: 280.4px;
-            height: 280.4px;
-
-            img{
-              width: 28px;  
-            }
+          top: 40px;
+          right: -40px;
+          width: clamp(140px, 1.5vw, 300px);
+          height: 300.4px;
         }
 
         .card_1,
         .card_2,
         .card_3 {
           height: 80px;
-          width: 170px;
+          width: clamp(140px, 1.5vw, 170px);
           padding: 6px 10px;
           border-radius: 12px;
+
+
+          h3 {
+            font-size: clamp(5.9px, 1vw, 8px);
+            font-weight: 600;
+            line-height: 12px;
+            letter-spacing: -2%;
+          }
+
+          .number {
+            img {
+              width: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .Main {
+    .content {
+      .how_to_use {
+        grid-template-columns: repeat(2, 1fr);
+        padding-left: 0;
+        column-gap: 0px;
+
+        .Doll_div {
+          width: 300px;
+          height: 300px;
+          top: 30px;
+          left: -100px;
+        }
+
+        .Sony {
+          top: 40px;
+          right: -40px;
+          width: clamp(140px, 1.5vw, 300px);
+          height: 300.4px;
+        }
+
+        .card_1,
+        .card_2,
+        .card_3 {
+          height: 80px;
+          width: clamp(100px, 1.5vw, 150px);
+          padding: 3px 6px;
+          border-radius: 8px;
+
+
+          h3 {
+            font-size: clamp(4px, 1vw, 7px);
+            font-weight: 600;
+            line-height: 12px;
+            letter-spacing: -2%;
+          }
 
           .number {
             img {
