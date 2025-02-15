@@ -8,8 +8,6 @@ import Logo from "../../../../../public/images/logo/Logo.svg";
 
 const HeaderMobile = () => {
   return (
-            <>
-            <div className="container">
             <div className={scss.content}>
                 <div>
                 <BurgerMenu/>
@@ -41,8 +39,6 @@ const HeaderMobile = () => {
                 </div>
 
             </div>
-            </div>
-            </>
   )
 }
 
