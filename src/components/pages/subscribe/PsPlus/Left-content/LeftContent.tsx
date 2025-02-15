@@ -7,30 +7,30 @@ import { useSubsServicesQuery } from "@/redux/api/subs-data";
 import { SUBS } from "@/redux/api/subs-data/types";
 
 const LeftContent = () => {
-  const { data, error, isLoading } = useSubsServicesQuery();
-  const [selectedService, setSelectedService] = useState<SUBS.GetSubsServicesResponse[number] | null>(null);
+  // const { data, error, isLoading } = useSubsServicesQuery();
+  // const [selectedService, setSelectedService] = useState<SUBS.GetSubsServicesResponse[number] | null>(null);
 
-  useEffect(() => {
-    if (data) {
-      setSelectedService(data.find(service => service.name === "PlayStation Plus Essential") || null);
-    }
-  }, [data]);
+  // useEffect(() => {
+  //   if (data) {
+  //     setSelectedService(data.find(service => service.name === "PlayStation Plus Essential") || null);
+  //   }
+  // }, [data]);
 
-  if (isLoading) {
-    return <div>Загрузка...</div>;
-  }
+  // if (isLoading) {
+  //   return <div>Загрузка...</div>;
+  // }
 
-  if (error) {
-    return <div>Произошла ошибка при загрузке данных!</div>;
-  }
+  // if (error) {
+  //   return <div>Произошла ошибка при загрузке данных!</div>;
+  // }
 
-  if (!selectedService) {
-    return <div>Сервис не найден.</div>;
-  }
+  // if (!selectedService) {
+  //   return <div>Сервис не найден.</div>;
+  // }
 
   return (
     <div className={scss.content}>
-      <h2>{selectedService.name}</h2>
+      <h2>Playstation Plus Essential</h2>
 
       <div className={scss.subGame}>
         <Image src="/images/ps-plus/cool_img.svg" alt="Игры по подписке" width={20} height={20} />
@@ -40,8 +40,8 @@ const LeftContent = () => {
       <div className={scss.console}>
         <h4>Консоль</h4>
         <div className={scss.console_btn}>
-          {selectedService.consoles.includes(1) && <button>PS4</button>}
-          {selectedService.consoles.includes(2) && <button>PS5</button>}
+          <button>PS4</button>
+          <button>PS5</button>
         </div>
       </div>
 
