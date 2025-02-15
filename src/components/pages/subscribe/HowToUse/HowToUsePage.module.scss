@@ -119,8 +119,8 @@
 
         .Sony {
           top: 30px;
-          right: -146px;
-          width: 400.4px;
+          right: -20px;
+          width: clamp(200px , 5vw , 400px);
           height: 400.4px;
         }
 
@@ -146,16 +146,16 @@
         gap: 20px;
 
         .Doll_div {
-          width: 350px;
+          width: clamp(200px , 5vw, 350px);
           height: 350px;
           top: 70px;
-          left: -116px;
+          left: -32px;
         }
 
         .Sony {
           top: 50px;
-          right: -146px;
-          width: 350.4px;
+          right: -18px;
+          width: clamp(180px, 5vw, 340px);
           height: 350.4px;
         }
 
@@ -194,22 +194,26 @@
 @media (max-width: 455px) {
   .Main {
     .content {
+
+      h1{
+        font-size: 26px;
+      }
       .how_to_use {
         grid-template-columns: repeat(2, 1fr);
         padding-left: 0;
         column-gap: 0px;
 
         .Doll_div {
-          width: 300px;
+          width: clamp(100px , 2vw , 280px);
           height: 300px;
           top: 30px;
-          left: -100px;
+          left: -20px;
         }
 
         .Sony {
           top: 40px;
-          right: -40px;
-          width: clamp(140px, 1.5vw, 300px);
+          right:-16px;
+          width: clamp(120px, 1.5vw, 260px);
           height: 300.4px;
         }
 
@@ -217,7 +221,7 @@
         .card_2,
         .card_3 {
           height: 80px;
-          width: clamp(140px, 1.5vw, 170px);
+          width: clamp(136px, 5vw, 280px);
           padding: 6px 10px;
           border-radius: 12px;
 
@@ -249,16 +253,16 @@
         column-gap: 0px;
 
         .Doll_div {
-          width: 300px;
+          width: clamp(116px, 5vw, 280px);
           height: 300px;
           top: 30px;
-          left: -100px;
+          left: -20px;
         }
 
         .Sony {
           top: 40px;
-          right: -40px;
-          width: clamp(140px, 1.5vw, 300px);
+          right: -20px;
+          width: clamp(90px, 1.5vw, 280px);
           height: 300.4px;
         }
 
@@ -266,15 +270,15 @@
         .card_2,
         .card_3 {
           height: 80px;
-          width: clamp(100px, 1.5vw, 150px);
-          padding: 3px 6px;
-          border-radius: 8px;
+          width: clamp(110px, 1.5vw, 150px);
+          padding: 1px 4px;
+          border-radius: 10px;
 
 
           h3 {
             font-size: clamp(4px, 1vw, 7px);
             font-weight: 600;
-            line-height: 12px;
+            line-height: 8px;
             letter-spacing: -2%;
           }
 
