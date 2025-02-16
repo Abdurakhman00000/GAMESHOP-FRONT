@@ -36,8 +36,34 @@
         }
 
         .boxes {
+            display: flex;
             align-items: start;
-            flex-direction: column;
+            flex-wrap: wrap;
+
+            button {
+                font-size: 7px;
+            }
+        }
+    }
+}
+
+
+@media(max-width: 350px) {
+    .content {
+        margin-top: 16px;
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        .boxes {
+            display: flex;
+            align-items: start;
+            flex-wrap: wrap;
+
+            button {
+                font-size: 6px;
+            }
         }
     }
 }

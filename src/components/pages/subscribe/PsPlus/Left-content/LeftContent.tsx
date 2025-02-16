@@ -1,32 +1,18 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import scss from "./LeftContent.module.scss";
 import Image from "next/image";
-import { useSubsServicesQuery } from "@/redux/api/subs-data";
-import { SUBS } from "@/redux/api/subs-data/types";
 
 const LeftContent = () => {
-  // const { data, error, isLoading } = useSubsServicesQuery();
-  // const [selectedService, setSelectedService] = useState<SUBS.GetSubsServicesResponse[number] | null>(null);
+  const [selectedConsoles, setSelectedConsoles] = useState<string[]>([]);
+  const [selectedLevels, setSelectedLevels] = useState<string[]>([]);
 
-  // useEffect(() => {
-  //   if (data) {
-  //     setSelectedService(data.find(service => service.name === "PlayStation Plus Essential") || null);
-  //   }
-  // }, [data]);
-
-  // if (isLoading) {
-  //   return <div>Загрузка...</div>;
-  // }
-
-  // if (error) {
-  //   return <div>Произошла ошибка при загрузке данных!</div>;
-  // }
-
-  // if (!selectedService) {
-  //   return <div>Сервис не найден.</div>;
-  // }
+  const toggleSelection = (item: string, setSelected: React.Dispatch<React.SetStateAction<string[]>>) => {
+    setSelected((prev) =>
+      prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
+    );
+  };
 
   return (
     <div className={scss.content}>
@@ -40,17 +26,30 @@ const LeftContent = () => {
       <div className={scss.console}>
         <h4>Консоль</h4>
         <div className={scss.console_btn}>
-          <button>PS4</button>
-          <button>PS5</button>
+          {["PS4", "PS5"].map((console) => (
+            <button
+              key={console}
+              className={selectedConsoles.includes(console) ? scss.active : ""}
+              onClick={() => toggleSelection(console, setSelectedConsoles)}
+            >
+              {console}
+            </button>
+          ))}
         </div>
       </div>
 
       <div className={scss.level_subs}>
         <h4>Уровень подписки</h4>
         <div className={scss.levelSub_btn}>
-            <button>Essential</button>
-            <button>Extra</button>
-            <button>Deluxe</button>
+          {["Essential", "Extra", "Deluxe"].map((level) => (
+            <button
+              key={level}
+              className={selectedLevels.includes(level) ? scss.active : ""}
+              onClick={() => toggleSelection(level, setSelectedLevels)}
+            >
+              {level}
+            </button>
+          ))}
         </div>
       </div>
     </div>

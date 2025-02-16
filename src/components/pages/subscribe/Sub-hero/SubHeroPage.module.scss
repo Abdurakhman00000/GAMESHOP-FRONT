@@ -106,8 +106,9 @@
 
 @media(max-width: 600px) {
     .Main {
+        margin-top: -70px;
         .background_img {
-            height: 360px;
+            height: 320px;
         }
 
         .content .left_content {

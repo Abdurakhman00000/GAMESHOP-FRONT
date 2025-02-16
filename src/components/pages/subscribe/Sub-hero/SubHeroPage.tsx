@@ -22,7 +22,7 @@ const SubHeroPage = () => {
 						<button>Подключить подписку</button>
 					</div>
 
-					<div className={scss.right_content}>
+					<div className={scss.right_content}> 
 						<div className={scss.img1}>
 							<Image
 								src={gameConsole}

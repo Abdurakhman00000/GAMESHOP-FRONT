@@ -44,7 +44,8 @@
                 cursor: pointer;
                 transition: background 0.3s, color 0.3s;
 
-                &:focus {
+                // Активное состояние при клике
+                &.active {
                     background: rgb(32, 37, 98);
                     color: white;
                 }
@@ -77,8 +78,9 @@
                 font-size: 15px;
                 font-weight: 700;
                 cursor: pointer;
+                transition: background 0.3s, color 0.3s;
 
-                &:focus {
+                &.active {
                     background: rgb(32, 37, 98);
                     color: white;
                 }
@@ -87,7 +89,7 @@
     }
 }
 
-@media(max-width: 470px) {
+@media (max-width: 470px) {
     .content {
         width: 100%;
 
