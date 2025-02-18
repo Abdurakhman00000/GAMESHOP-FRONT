@@ -44,7 +44,6 @@
                 cursor: pointer;
                 transition: background 0.3s, color 0.3s;
 
-                // Активное состояние при клике
                 &.active {
                     background: rgb(32, 37, 98);
                     color: white;

@@ -9,7 +9,6 @@ const Subscribe = () => {
   return (
     <>
       <SubHeroPage />
-      <PsPlusPage />
       <HowToUsePage />
       <PsPlusEssPage/>
       <SubFAQPage/>

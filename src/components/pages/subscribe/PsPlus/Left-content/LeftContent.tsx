@@ -6,12 +6,16 @@ import Image from "next/image";
 
 const LeftContent = () => {
   const [selectedConsoles, setSelectedConsoles] = useState<string[]>([]);
-  const [selectedLevels, setSelectedLevels] = useState<string[]>([]);
+  const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
 
-  const toggleSelection = (item: string, setSelected: React.Dispatch<React.SetStateAction<string[]>>) => {
-    setSelected((prev) =>
-      prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
+  const toggleConsoleSelection = (console: string) => {
+    setSelectedConsoles((prev) =>
+      prev.includes(console) ? prev.filter((c) => c !== console) : [...prev, console]
     );
+  };
+
+  const toggleLevelSelection = (level: string) => {
+    setSelectedLevel((prev) => (prev === level ? null : level));
   };
 
   return (
@@ -30,7 +34,7 @@ const LeftContent = () => {
             <button
               key={console}
               className={selectedConsoles.includes(console) ? scss.active : ""}
-              onClick={() => toggleSelection(console, setSelectedConsoles)}
+              onClick={() => toggleConsoleSelection(console)}
             >
               {console}
             </button>
@@ -44,10 +48,10 @@ const LeftContent = () => {
           {["Essential", "Extra", "Deluxe"].map((level) => (
             <button
               key={level}
-              className={selectedLevels.includes(level) ? scss.active : ""}
-              onClick={() => toggleSelection(level, setSelectedLevels)}
+              className={selectedLevel === level ? scss.active : ""}
+              onClick={() => toggleLevelSelection(level)}
             >
-              {level}
+              {level} 
             </button>
           ))}
         </div>
