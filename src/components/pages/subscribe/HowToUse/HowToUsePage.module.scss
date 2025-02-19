@@ -22,16 +22,15 @@
     .how_to_use {
       position: relative;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 0.3fr);
       align-items: center !important;
-      padding-left: 50px;
 
       .Doll_div {
-        width: 408.14px;
-        height: 435.4px;
+        width: 558.14px;
+        height: 585.4px;
         position: absolute;
         top: -65px;
-        left: -126px;
+        left: -400px;
 
         .Doll {
           max-width: 100%;
@@ -40,27 +39,71 @@
         }
       }
 
-      .card_1,
-      .card_2,
-      .card_3 {
-        padding: 10px 15px;
+      .card_1 {
+        padding: 13px 20px;
         display: flex;
-        border-radius: 20px;
-        gap: 20px;
         align-items: center;
-        width: 282px;
-        height: 130px;
+        border-radius: 20px;
+        width: 300px;
+        height: 150px;
         border: 1px solid black;
 
         h3 {
-          max-width: 177px;
-          font-size: clamp(10px, 1.5vw, 16px);
-          line-height: clamp(12px, 16px, 19px);
+          font-size: clamp(10px, 1.5vw, 18px);
+          line-height: 24px;
           font-weight: 600;
           letter-spacing: -0.02em;
           text-align: left;
           text-underline-position: from-font;
           text-decoration-skip-ink: none;
+          color: rgb(32, 37, 98);
+          padding: 0 5px;
+          display: flex;
+          align-items: center;
+        }
+
+        .number {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          h1 {
+            width: 39px;
+            height: 38px;
+            border-radius: 5px;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 39.01px;
+            letter-spacing: -0.02em;
+            color: #202562;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+          }
+        }
+      }
+      .card_2,
+      .card_3 {
+        padding: 13px 20px;
+        display: flex;
+        border-radius: 20px;
+        width: 300px;
+        height: 150px;
+        border: 1px solid black;
+
+        h3 {
+          font-size: clamp(10px, 1.5vw, 18px);
+          line-height: 24px;
+          font-weight: 600;
+          letter-spacing: -0.02em;
+          text-align: left;
+          text-underline-position: from-font;
+          text-decoration-skip-ink: none;
+          color: rgb(32, 37, 98);
+          padding: 0 5px;
+          display: flex;
+          align-items: center;
         }
 
         .number {
@@ -87,11 +130,18 @@
 
       .Sony {
         position: absolute;
-        top: -65px;
-        right: -146px;
-        width: 458.4px;
-        height: 458.4px;
+        top: -175px;
+        right: -346px;
+        width: 650.4px;
+        height: 650.4px;
         object-fit: contain;
+
+        img {
+          width: 100%;
+          height: 100%;
+          clip-path: inset(0 180px 0 0);
+        }
+
       }
     }
   }
@@ -104,26 +154,6 @@
         grid-template-columns: repeat(2, 1fr);
         padding-left: 0;
         gap: 20px;
-
-        .Doll_div {
-          width: 400px;
-          height: 400px;
-          top: 30px;
-          left: -126px;
-
-          .Doll {
-            max-width: 100%;
-            max-height: 100%;
-          }
-        }
-
-        .Sony {
-          top: 30px;
-          right: -20px;
-          width: clamp(200px , 5vw , 400px);
-          height: 400.4px;
-        }
-
         .card_1 {
           justify-self: center;
         }
@@ -142,23 +172,7 @@
     .content {
       .how_to_use {
         grid-template-columns: repeat(2, 1fr);
-        padding-left: 0;
-        gap: 20px;
-
-        .Doll_div {
-          width: clamp(200px , 5vw, 350px);
-          height: 350px;
-          top: 70px;
-          left: -32px;
-        }
-
-        .Sony {
-          top: 50px;
-          right: -18px;
-          width: clamp(180px, 5vw, 340px);
-          height: 350.4px;
-        }
-
+        gap: 10px;
         .card_1,
         .card_2,
         .card_3 {
@@ -204,17 +218,26 @@
         column-gap: 0px;
 
         .Doll_div {
-          width: clamp(100px , 2vw , 280px);
-          height: 300px;
-          top: 30px;
-          left: -20px;
+          width: 250px;
+          height: 370px;
+          top: -10px;
+          left: -130px;
         }
 
         .Sony {
-          top: 40px;
-          right:-16px;
-          width: clamp(120px, 1.5vw, 260px);
-          height: 300.4px;
+          position: absolute;
+          top: 20px;
+          right: -170px;
+          width: 260px;
+          height: 320px;
+          object-fit: contain;
+  
+          img {
+            width: 100%;
+            height: 100%;
+            clip-path: inset(0 100px 0 0);
+          }
+  
         }
 
         .card_1,
@@ -222,14 +245,14 @@
         .card_3 {
           height: 80px;
           width: clamp(136px, 5vw, 280px);
-          padding: 6px 10px;
           border-radius: 12px;
+          padding: 1px 7px;
+          align-items: center;
 
 
           h3 {
-            font-size: clamp(5.9px, 1vw, 8px);
+            font-size: 8px;
             font-weight: 600;
-            line-height: 8px;
             letter-spacing: -2%;
           }
 
@@ -251,21 +274,6 @@
         grid-template-columns: repeat(2, 1fr);
         padding-left: 0;
         column-gap: 0px;
-
-        .Doll_div {
-          width: clamp(116px, 5vw, 280px);
-          height: 300px;
-          top: 30px;
-          left: -20px;
-        }
-
-        .Sony {
-          top: 40px;
-          right: -20px;
-          width: clamp(90px, 1.5vw, 280px);
-          height: 300.4px;
-        }
-
         .card_1,
         .card_2,
         .card_3 {
@@ -276,9 +284,9 @@
 
 
           h3 {
-            font-size: clamp(4px, 1vw, 7px);
+            font-size: 7px;
             font-weight: 600;
-            line-height: 6px;
+            line-height: 8px;
             letter-spacing: -2%;
           }
 

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import scss from './HowToUsePage.module.scss';
 import { CARD, IMAGE_SIZES, IMAGES } from './components/constants/howToUse'
 
-const HowToUsePage: React.FC = () => {
+const HowToUsePage: React.FC = () => { 
 	return (
 		<section className={scss.Main}>
 			<div className='container'>
@@ -39,8 +39,8 @@ const HowToUsePage: React.FC = () => {
 							</div>
 						))}
 
+						<div className={scss.Sony}>
 						<Image
-							className={scss.Sony}
 							src={IMAGES.SONY}
 							alt='sony-console'
 							width={IMAGE_SIZES.LARGE.width}
@@ -48,6 +48,7 @@ const HowToUsePage: React.FC = () => {
 							quality={IMAGE_SIZES.LARGE.quality}
 							priority
 						/>
+						</div>
 					</div>
 				</div>
 			</div>

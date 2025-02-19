@@ -24,9 +24,9 @@ export const CARD: CardType[] = [
 ];
 
 export const IMAGES = {
-	DOLL: '/images/howToUse/doll_image.png',
+	DOLL: '/images/howToUse/doll-pl.svg',
 	ARROW: '/images/howToUse/Arrow_2.svg',
-	SONY: '/images/howToUse/sony.png'
+	SONY: '/images/howToUse/ploika-nice.svg'
 } as const;
 
 export const IMAGE_SIZES = {
