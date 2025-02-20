@@ -143,6 +143,10 @@
         }
 
       }
+
+      .Sony2 {
+        display: none;
+      }
     }
   }
 }
@@ -208,8 +212,7 @@
 @media (max-width: 455px) {
   .Main {
     .content {
-
-      h1{
+      h1 {
         font-size: 26px;
       }
       .how_to_use {
@@ -224,22 +227,6 @@
           left: -130px;
         }
 
-        .Sony {
-          position: absolute;
-          top: 20px;
-          right: -170px;
-          width: 260px;
-          height: 320px;
-          object-fit: contain;
-  
-          img {
-            width: 100%;
-            height: 100%;
-            clip-path: inset(0 100px 0 0);
-          }
-  
-        }
-
         .card_1,
         .card_2,
         .card_3 {
@@ -248,7 +235,6 @@
           border-radius: 12px;
           padding: 1px 7px;
           align-items: center;
-
 
           h3 {
             font-size: 8px;
@@ -262,10 +248,29 @@
             }
           }
         }
+
+        .Sony {
+          display: none;
+        }
+        .Sony2 {
+          display: block;
+          position: absolute;
+          object-fit: contain;
+          top: 60px;
+          right: none;
+          margin-left: 240px;
+          width: 155.4px;
+          height: 220.4px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        }
       }
     }
   }
 }
+
 
 @media (max-width: 320px) {
   .Main {

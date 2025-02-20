@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import scss from './HowToUsePage.module.scss';
 import { CARD, IMAGE_SIZES, IMAGES } from './components/constants/howToUse'
+import sonyForMb from "../../../../../public/images/howToUse/sony.png";
 
 const HowToUsePage: React.FC = () => { 
 	return (
@@ -43,6 +44,17 @@ const HowToUsePage: React.FC = () => {
 						<Image
 							src={IMAGES.SONY}
 							alt='sony-console'
+							width={IMAGE_SIZES.LARGE.width}
+							height={IMAGE_SIZES.LARGE.height}
+							quality={IMAGE_SIZES.LARGE.quality}
+							priority
+						/>
+						</div>
+
+						<div className={scss.Sony2}>
+						<Image
+							src={sonyForMb}
+							alt='sony-console2'
 							width={IMAGE_SIZES.LARGE.width}
 							height={IMAGE_SIZES.LARGE.height}
 							quality={IMAGE_SIZES.LARGE.quality}
