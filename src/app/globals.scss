@@ -1,8 +1,14 @@
+:root {
+  --color-text: rgb(32, 37, 98);
+}
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 
 body {
   font-family: var(--font-montserrat), sans-serif;

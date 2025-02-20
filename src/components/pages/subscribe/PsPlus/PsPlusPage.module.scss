@@ -3,18 +3,21 @@
 
     .content {
         h1 {
-            text-align: center;
-            color: rgb(32, 37, 98);
-            font-size: 32px;
+            color: var(--color-text);
+            font-size: 15px;
             font-weight: 700;
-            margin-bottom: 10px;
+            line-height: 18px;
+            letter-spacing: 0%;
+            text-align: center;
         }
 
         h3 {
-            text-align: center;
-            color: rgb(32, 37, 98);
-            font-size: 24px;
+            color: var(--color-text);
+            font-size: 10px;
             font-weight: 400;
+            line-height: 12px;
+            letter-spacing: -2%;
+            text-align: center;
         }
 
         .ps_block {
@@ -86,7 +89,7 @@
 
         .content {
             h1 {
-                font-size: 15px;
+                font-size: 18px;
                 margin-bottom: -1px;
             }
 
