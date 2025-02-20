@@ -255,11 +255,10 @@
         .Sony2 {
           display: block;
           position: absolute;
-          object-fit: contain;
+          object-fit: contain;  
           top: 60px;
-          right: none;
-          margin-left: 240px;
-          width: 155.4px;
+          right: -20px;
+          width: 143.4px;
           height: 220.4px;
         img {
           width: 100%;
