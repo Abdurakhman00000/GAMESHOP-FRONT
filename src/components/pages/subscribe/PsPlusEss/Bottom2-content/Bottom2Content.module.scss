@@ -19,13 +19,13 @@
             height: 124px;
 
             h4 {
-                font-size: clamp(2px, 2vw, 13px);
+                font-size: clamp(8px, 2vw, 13px);
                 font-weight: 600;
                 color: white;
             }
 
             p {
-                font-size: clamp(1px, 2vw, 12px);
+                font-size: clamp(7px, 2vw, 12px);
                 font-weight: 400;
                 color: white;
                 white-space: pre-line;
@@ -38,8 +38,15 @@
     .content {
         margin-top: 14px;
 
+
         .boxes {
-            gap: 5px;
+            display: flex;
+            flex-direction: column;
+
+            .box {
+                width: 100%;
+                height: auto;
+            }
         }
     }
 }
