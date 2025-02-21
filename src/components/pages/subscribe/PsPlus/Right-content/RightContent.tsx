@@ -11,7 +11,7 @@ interface SubscriptionOption {
 const subscriptionOptions: SubscriptionOption[] = [
 	{ id: 1, months: 1, price: '740Р' },
 	{ id: 2, months: 3, price: '1690Р' },
-	{ id: 3, months: 12, price: '2890Р' }
+	{ id: 3, months: 12, price: '2890Р' } 
 ];
 
 const SubscriptionChoice = memo(

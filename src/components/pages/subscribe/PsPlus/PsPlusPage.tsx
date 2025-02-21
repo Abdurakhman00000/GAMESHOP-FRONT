@@ -18,7 +18,7 @@ const LeftBlock = memo(() => (
 		/>
 		<p>Essential</p>
 	</div>
-));
+)); 
 
 LeftBlock.displayName = 'LeftBlock';
 

@@ -4,7 +4,7 @@ import scss from './PsPlusEssPage.module.scss';
 import psImage from '../../../../../public/images/playstationLogo2/playstationPlus.svg';
 import Left2Content from './Left2-content/Left2Content';
 import Right2Content from './Right2-content/Right2Content';
-import Bottom2Content from './Bottom2-content/Bottom2Content';
+import Bottom2Content from './Bottom2-content/Bottom2Content'; 
 
 
 

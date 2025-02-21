@@ -1,3 +1,5 @@
+// in this code ChatGPT don's use
+
 "use client";
 
 import React, { useState } from "react";
@@ -5,18 +7,8 @@ import scss from "./LeftContent.module.scss";
 import Image from "next/image";
 
 const LeftContent = () => {
-  const [selectedConsoles, setSelectedConsoles] = useState<string[]>([]);
-  const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
-
-  const toggleConsoleSelection = (console: string) => {
-    setSelectedConsoles((prev) =>
-      prev.includes(console) ? prev.filter((c) => c !== console) : [...prev, console]
-    );
-  };
-
-  const toggleLevelSelection = (level: string) => {
-    setSelectedLevel((prev) => (prev === level ? null : level));
-  };
+  const [selectedConsole, setSelectedConsole] = useState<string | null>(null); // choice only one level
+  const [selectedLevel, setSelectedLevel] = useState<string | null>(null); // choice only one level
 
   return (
     <div className={scss.content}>
@@ -27,21 +19,23 @@ const LeftContent = () => {
         <p>Игры по подписке</p>
       </div>
 
+      {/* Select console */}
       <div className={scss.console}>
         <h4>Консоль</h4>
         <div className={scss.console_btn}>
           {["PS4", "PS5"].map((console) => (
             <button
               key={console}
-              className={selectedConsoles.includes(console) ? scss.active : ""}
-              onClick={() => toggleConsoleSelection(console)}
+              className={selectedConsole === console ? scss.active : ""}
+              onClick={() => setSelectedConsole(console)}
             >
-              {console}
+              {console} 
             </button>
           ))}
         </div>
       </div>
 
+      {/* Select level */}
       <div className={scss.level_subs}>
         <h4>Уровень подписки</h4>
         <div className={scss.levelSub_btn}>
@@ -49,15 +43,16 @@ const LeftContent = () => {
             <button
               key={level}
               className={selectedLevel === level ? scss.active : ""}
-              onClick={() => toggleLevelSelection(level)}
+              onClick={() => setSelectedLevel(level)}
             >
               {level} 
             </button>
           ))}
         </div>
       </div>
-    </div>
+    </div> 
   );
 };
 
 export default LeftContent;
+// in this code ChatGPT don's use
