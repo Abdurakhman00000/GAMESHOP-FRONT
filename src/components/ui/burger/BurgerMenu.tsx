@@ -10,6 +10,10 @@ const BurgerMenu: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       <div
@@ -22,26 +26,22 @@ const BurgerMenu: React.FC = () => {
       </div>
       <nav className={`${scss.navMenu} ${isOpen ? scss.active : ""}`}>
         <ul>
-          <li>
+          <li onClick={closeMenu}>
             <Link href="/subscribe">01. Подписки</Link>
           </li>
-          <li>
-            <a href="">02. Игры</a>
+          <li onClick={closeMenu}>
+            <a href="#">02. Игры</a>
           </li>
-          <li>
-            <a href="">03. Пополнение</a>
+          <li onClick={closeMenu}>
+            <a href="#">03. Пополнение</a>
           </li>
-
 
           <h4>Поиск</h4>
           <div className={scss.input_div}>
-              <input type="text" />
-              <CiSearch />
-            </div>
+            <input type="text" />
+            <CiSearch />
+          </div>
         </ul>
-
-        
-        
       </nav>
     </>
   );
