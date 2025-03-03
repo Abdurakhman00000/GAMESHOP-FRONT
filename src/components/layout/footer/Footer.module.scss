@@ -19,7 +19,7 @@
     .footer_end {
       display: flex;
       align-items: center;
-      gap: 90px;
+      gap: 180px;
 
       p {
         cursor: pointer;
@@ -31,6 +31,14 @@
         text-decoration-skip-ink: none;
         color: #ffffff;
       }
+
+      .main_info {
+
+        h6 {
+          font-size: 14px;
+          color: white;
+        }
+      }
     }
   }
 }
@@ -39,7 +47,7 @@
   .Footer {
     .content {
       .footer_end {
-        gap: 60px;
+        gap: 150px;
 
         p {
           font-size: 18px;
@@ -60,7 +68,7 @@
       }
 
       .footer_end {
-        gap: 40px;
+        gap: 90px;
 
         p {
           font-size: 16px;
@@ -81,10 +89,10 @@
       }
 
       .footer_end {
-        gap: 20px;
+        gap: 60px;
 
         p {
-          font-size: 14px;
+          font-size: 16px;
           line-height: 20px;
         }
       }
@@ -103,11 +111,19 @@
       }
 
       .footer_end {
-        gap: 15px;
+        gap: 40px;
 
         p {
-          font-size: 12px;
+          font-size: 14px;
           line-height: 16px;
+        }
+        
+        .main_info {
+
+          h6 {
+            font-size: 9px;
+            color: white;
+          }
         }
       }
     }
@@ -125,11 +141,19 @@
       }
 
       .footer_end {
-        gap: 10px;
+        gap: 20px;
 
         p {
-          font-size: 8px;
+          font-size: 12px;
           line-height: 12px;
+        }
+
+        .main_info {
+
+          h6 {
+            font-size: 7px;
+            color: white;
+          }
         }
       }
     }
