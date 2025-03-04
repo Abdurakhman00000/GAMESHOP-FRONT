@@ -58,7 +58,7 @@ const Header = () => {
               </div>
             </Link>
   
-            <Link href="/games">
+            {/* <Link href="/games">
               <div
                 className={`${scss.headers} ${
                   pathname === "/games" ? scss.active : ""
@@ -75,9 +75,9 @@ const Header = () => {
                 />
                 <a>игры</a>
               </div>
-            </Link>
+            </Link> */}
   
-            <Link href="/replenishment">
+            {/* <Link href="/replenishment">
               <div
                 className={`${scss.headers} ${
                   pathname === "/replenishment" ? scss.active : ""
@@ -94,7 +94,7 @@ const Header = () => {
                 />
                 <a>пополнение</a>
               </div>
-            </Link>
+            </Link> */}
   
             <div className={scss.input_div}>
               <input type="text" />

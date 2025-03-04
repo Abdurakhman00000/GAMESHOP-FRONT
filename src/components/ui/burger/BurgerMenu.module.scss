@@ -45,13 +45,13 @@
     top: 90px;
     left: 20px;
     width: 270px;
-    height: 300px;
+    height: auto;
     background: #202662eb;
     border: 1px solid #fee44e;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px;
+    padding: 50px 20px;
     transform: translateY(-100%);
     transition: transform 0.3s ease, opacity 0.3s;
     opacity: 0;
@@ -67,7 +67,7 @@
       padding: 0;
   
       li {
-        margin: 20px 0;
+        margin-bottom: 20px;
   
         a {
           color: #fff;

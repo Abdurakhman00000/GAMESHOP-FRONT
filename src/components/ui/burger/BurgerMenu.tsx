@@ -29,12 +29,12 @@ const BurgerMenu: React.FC = () => {
           <li onClick={closeMenu}>
             <Link href="/subscribe">01. Подписки</Link>
           </li>
-          <li onClick={closeMenu}>
+          {/* <li onClick={closeMenu}>
             <a href="#">02. Игры</a>
           </li>
           <li onClick={closeMenu}>
             <a href="#">03. Пополнение</a>
-          </li>
+          </li> */}
 
           <h4>Поиск</h4>
           <div className={scss.input_div}>
