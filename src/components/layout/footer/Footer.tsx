@@ -2,6 +2,7 @@ import React from 'react';
 import scss from './Footer.module.scss';
 import Image from 'next/image';
 import Logo from '../../../../public/images/logo/Logo.svg';
+import Link from 'next/link';
 
 const Footer = () => {
 	return (
@@ -28,7 +29,9 @@ const Footer = () => {
 							<h6>ОГРН/ОГРНИП: 316774600498753</h6>
 						</div>
 
+						<Link target='blank' href="https://disk.yandex.ru/i/b8Up-MiVGcM-Og">
 						<p>оферта</p>
+						</Link>
 					</div>
 				</div>
 			</div>
