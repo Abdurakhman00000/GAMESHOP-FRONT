@@ -10,8 +10,8 @@ const Subscribe = () => {
     <>
       <SubHeroPage />
       <HowToUsePage />
-      <PsPlusEssPage/>
-      <SubFAQPage/>
+      <PsPlusEssPage />
+      <SubFAQPage />
     </>
   );
 };
