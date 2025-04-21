@@ -7,26 +7,42 @@ interface Period {
   price: string;
 }
 
-const SubscriptionChoice = memo(({ period }: { period: Period }) => (
-  <div
-    className={scss.choice}
-    tabIndex={0}
-    role="button"
-    aria-label={`Подписка на ${period.months} месяц за ${period.price}`}
-  >
-    <div className={scss.boxes}>
-      <div className={scss.box}>
-        <p>{period.months}</p>
+const SubscriptionChoice = memo(
+  ({
+    period,
+    idx,
+    isFading,
+  }: {
+    period: Period;
+    idx: number;
+    isFading: boolean;
+  }) => (
+    <div
+      className={scss.choice}
+      tabIndex={0}
+      role="button"
+      aria-label={`Подписка на ${period.months} месяц за ${period.price}`}
+    >
+      <div className={scss.boxes}>
+        <div className={scss.box}>
+          <p>{idx + 1}</p>
+        </div>
+        <p>{period.months} месяц</p>
       </div>
-      <p>{period.months} месяц</p>
+      <h6 className={isFading ? "fading" : ""}>{period.price}Р</h6>
     </div>
-    <h6>{period.price}Р</h6>
-  </div>
-));
+  )
+);
 
 SubscriptionChoice.displayName = "SubscriptionChoice";
 
-const RightContent = ({ periods }: { periods: Period[] }) => {
+const RightContent = ({
+  periods,
+  isFading,
+}: {
+  periods: Period[];
+  isFading: boolean;
+}) => {
   const handlePurchase = () => {
     console.log("Покупка инициирована");
   };
@@ -37,7 +53,12 @@ const RightContent = ({ periods }: { periods: Period[] }) => {
 
       <div className={scss.choices}>
         {periods.map((period, index) => (
-          <SubscriptionChoice key={index} period={period} />
+          <SubscriptionChoice
+            key={index}
+            period={period}
+            idx={index}
+            isFading={isFading}
+          />
         ))}
 
         <button onClick={handlePurchase} type="button">

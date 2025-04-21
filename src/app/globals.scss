@@ -2,13 +2,11 @@
   --color-text: rgb(32, 37, 98);
 }
 
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 
 body {
   font-family: var(--font-montserrat), sans-serif;
@@ -19,7 +17,6 @@ body {
 button {
   font-family: var(--font-montserrat), sans-serif;
 }
-
 
 html {
   scroll-behavior: smooth;
@@ -34,7 +31,10 @@ html {
   padding: 0 20px;
 }
 
-
 a {
   text-decoration: none;
+}
+
+.fading {
+  opacity: 0;
 }
