@@ -11,19 +11,13 @@ import { SUBS } from "@/redux/api/subs-data/types";
 
 interface ITypesBlocks {
   data: SUBS.GetSubsServicesResponse | null;
-  change_level: Function;
+  change_level: (level: string) => void;
   subs_level: string;
   isFading: boolean;
 }
 
 const LeftBlock: FC<ITypesBlocks> = memo(({ data }) => (
-  <div
-    style={{
-      display: "flex",
-      flexDirection: "column",
-      gap: "20px",
-    }}
-  >
+  <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
     {data?.map((el) => (
       <div key={el.id} className={scss.left_content}>
         <Image
@@ -44,13 +38,7 @@ LeftBlock.displayName = "LeftBlock";
 
 const RightBlock: FC<ITypesBlocks> = memo(
   ({ data, change_level, subs_level, isFading }) => (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "20px",
-      }}
-    >
+    <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
       {data?.map((el) => (
         <div key={el.id} className={scss.right_content}>
           <div className={scss.block_content}>

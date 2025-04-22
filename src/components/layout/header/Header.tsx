@@ -22,7 +22,7 @@ const Header = () => {
 
   return (
     <header className={scss.Header}>
-      <div className="container">
+      <div className="container"> 
 
         {
           !isMobile ? (
@@ -54,7 +54,7 @@ const Header = () => {
                   priority
                   className={scss.navIcon}
                 />
-                <span>подписки</span>
+                <span style={{color: "white"}}>подписки</span>
               </div>
             </Link>
   
@@ -116,7 +116,7 @@ const Header = () => {
                   priority
                   className={scss.navIcon}
                 />
-                <span>корзина</span>
+                <span style={{color: "white"}}>корзина</span>
               </div>
             </Link>
           </div>
