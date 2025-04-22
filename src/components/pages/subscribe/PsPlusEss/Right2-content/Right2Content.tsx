@@ -9,6 +9,10 @@ interface PeriodOption {
   price: string;
 }
 
+const formatPrice = (price: string): string => {
+  return Math.floor(parseFloat(price)).toString();
+};
+
 const SubscriptionChoice = memo(({ option }: { option: PeriodOption }) => (
   <div
     className={scss.choice}
@@ -16,7 +20,7 @@ const SubscriptionChoice = memo(({ option }: { option: PeriodOption }) => (
     role="button"
     aria-label={`Подписка на ${option.months} ${
       option.months === 1 ? "месяц" : "месяца"
-    } за ${option.price}₽`}
+    } за ${formatPrice(option.price)}₽`}
   >
     <div className={scss.boxes}>
       <div className={scss.box}>
@@ -24,7 +28,7 @@ const SubscriptionChoice = memo(({ option }: { option: PeriodOption }) => (
       </div>
       <p>{option.months} месяц</p>
     </div>
-    <h6>{option.price}₽</h6>
+    <h6>{formatPrice(option.price)}₽</h6>
   </div>
 ));
 

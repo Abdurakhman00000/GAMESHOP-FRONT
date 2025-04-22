@@ -7,6 +7,10 @@ interface Period {
   price: string;
 }
 
+const formatPrice = (price: string): string => {
+  return Math.floor(parseFloat(price)).toString();
+};
+
 const SubscriptionChoice = memo(
   ({
     period,
@@ -29,7 +33,9 @@ const SubscriptionChoice = memo(
         </div>
         <p>{period.months} месяц</p>
       </div>
-      <h6 className={isFading ? "fading" : ""}>{period.price}Р</h6>
+      <h6 className={isFading ? "fading" : ""}>
+        {formatPrice(period.price)}Р
+      </h6>
     </div>
   )
 );
