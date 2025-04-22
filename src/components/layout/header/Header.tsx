@@ -10,7 +10,7 @@ import HeaderMobile from "./header-for-mobile/HeaderMobile";
 
 const Header = () => {
   const pathname = usePathname();
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 950);
@@ -54,7 +54,7 @@ const Header = () => {
                   priority
                   className={scss.navIcon}
                 />
-                <a>подписки</a>
+                <span>подписки</span>
               </div>
             </Link>
   
@@ -116,7 +116,7 @@ const Header = () => {
                   priority
                   className={scss.navIcon}
                 />
-                <a>корзина</a>
+                <span>корзина</span>
               </div>
             </Link>
           </div>

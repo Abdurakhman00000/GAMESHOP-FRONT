@@ -11,6 +11,7 @@ interface ContentItem {
 
 interface BottomContentProps {
   contents: ContentItem[];
+  isFading: boolean;
 }
 
 const FeatureButton = memo(({ feature }: { feature: ContentItem }) => (
@@ -28,11 +29,11 @@ const FeatureButton = memo(({ feature }: { feature: ContentItem }) => (
 
 FeatureButton.displayName = "FeatureButton";
 
-const BottomContent = ({ contents }: BottomContentProps) => {
+const BottomContent = ({ contents, isFading }: BottomContentProps) => {
   return (
     <div className={scss.content}>
       <h2>Что входит в подписку?</h2>
-      <div className={scss.boxes}>
+      <div className={`${scss.boxes} ${isFading ? "fading" : ""}`}>
         {contents.map((feature, index) => (
           <FeatureButton key={index} feature={feature} />
         ))}

@@ -26,6 +26,9 @@
       align-items: center;
       justify-content: space-between;
       margin-top: 50px;
+      .left {
+        transition: opacity 0.4s ease-in-out;
+      }
       .left_content {
         width: 380px;
         height: 370px;

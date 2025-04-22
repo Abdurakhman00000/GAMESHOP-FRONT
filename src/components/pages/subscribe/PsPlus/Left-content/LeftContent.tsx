@@ -7,17 +7,26 @@ import Image from "next/image";
 interface IProps {
   name: string;
   consoles: number[];
-  choices_level: string;
+  choices_level: string[];
+  change_level: Function;
+  subs_level: string;
+  isFading: boolean;
 }
 
-const LeftContent: FC<IProps> = ({ name, consoles, choices_level }) => {
-  const [selectedConsole, setSelectedConsole] = useState<number | null>(null); // choice only one level
-  const [selectedLevel, setSelectedLevel] = useState<string | null>(null); // choice only one level
+const LeftContent: FC<IProps> = ({
+  name,
+  consoles,
+  choices_level,
+  change_level,
+  subs_level,
+  isFading,
+}) => {
+  const [selectedConsole, setSelectedConsole] = useState<string | null>(null);
 
   return (
     <>
       <div className={scss.content}>
-        <h2>{name}</h2>
+        <h2 className={isFading ? "fading" : ""}>{name}</h2>
         <div className={scss.subGame}>
           <Image
             src="/images/ps-plus/cool_img.svg"
@@ -32,7 +41,7 @@ const LeftContent: FC<IProps> = ({ name, consoles, choices_level }) => {
         <div className={scss.console}>
           <h4>Консоль</h4>
           <div className={scss.console_btn}>
-            {consoles.map((console) => (
+            {/* {consoles.map((console) => (
               <button
                 key={console}
                 className={selectedConsole === console ? scss.active : ""}
@@ -40,7 +49,19 @@ const LeftContent: FC<IProps> = ({ name, consoles, choices_level }) => {
               >
                 {console}
               </button>
-            ))}
+            ))} */}
+            <button
+              className={selectedConsole === "PS4" ? scss.active : ""}
+              onClick={() => setSelectedConsole("PS4")}
+            >
+              PS4
+            </button>{" "}
+            <button
+              className={selectedConsole === "PS5" ? scss.active : ""}
+              onClick={() => setSelectedConsole("PS5")}
+            >
+              PS5
+            </button>
           </div>
         </div>
 
@@ -48,12 +69,17 @@ const LeftContent: FC<IProps> = ({ name, consoles, choices_level }) => {
         <div className={scss.level_subs}>
           <h4>Уровень подписки</h4>
           <div className={scss.levelSub_btn}>
-            <button
-              className={selectedLevel === choices_level ? scss.active : ""}
-              onClick={() => setSelectedLevel(choices_level)}
-            >
-              {choices_level}
-            </button>
+            {choices_level.map((level, idx) => (
+              <button
+                key={idx}
+                className={subs_level === level ? scss.active : ""}
+                onClick={() => {
+                  change_level(level);
+                }}
+              >
+                {level}
+              </button>
+            ))}
           </div>
         </div>
       </div>
@@ -62,4 +88,4 @@ const LeftContent: FC<IProps> = ({ name, consoles, choices_level }) => {
 };
 
 export default LeftContent;
-// in this code ChatGPT don's use
+// in this code ChatGPT doesn't use
