@@ -6,6 +6,13 @@ import {
 
 const baseQuery = fetchBaseQuery({
   baseUrl: `${process.env.NEXT_PUBLIC_DATABASE_API}/api`,
+  prepareHeaders: (headers) => {
+    const token = "96e1f15b59a32e04cb66f85635807ee233fcf430"; 
+    if (token) {
+      headers.set("Authorization", `Bearer ${token}`);
+    }
+    return headers;
+  },
 });
 
 const baseQueryExtended: BaseQueryFn = async (args, api, extraOptions) => {

@@ -10,9 +10,6 @@ const api = index.injectEndpoints({
       query: () => ({
         url: `/subscription-services`,
         method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
       }),
       providesTags: ["subsService"],
     }),
@@ -23,13 +20,22 @@ const api = index.injectEndpoints({
       query: () => ({
         url: `/subscriptions`,
         method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
       }),
       providesTags: ["subscribe"],
     }),
+    initiatePayment: build.mutation<SUBS.InitiatePaymentResponse, { user_id: number; username: string }>({
+      query: (data) => ({
+        url: `/payment/initiate/`,
+        method: "POST",
+        body: {
+          user_id: data.user_id,
+          username: data.username,
+        },
+      }),
+      invalidatesTags: ["subscribe"]
+    }),
+    
   }),
 });
 
-export const { useSubsServicesQuery, useGetSubscribeQuery } = api;
+export const { useSubsServicesQuery, useGetSubscribeQuery, useInitiatePaymentMutation } = api;

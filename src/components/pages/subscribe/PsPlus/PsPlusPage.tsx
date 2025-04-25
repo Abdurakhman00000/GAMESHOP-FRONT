@@ -26,9 +26,9 @@ const LeftBlock: FC<ITypesBlocks> = memo(({ data }) => (
           height={300}
           width={800}
           priority={true}
-          sizes="(max-width: 1220px) 100vw, 257px"
+          sizes="(max-width: 1220px) 100vw, 257px"  
         />
-        <p>{el.name}</p>
+        <p>{el.choices_level}</p>
       </div>
     ))}
   </div>
@@ -79,7 +79,7 @@ const PsPlusPage = () => {
     setTimeout(() => {
       setSubsLevel(level);
       setIsFading(false);
-    }, 400); // должно совпадать с transition в SCSS
+    }, 400); 
   };
 
   const filteredData = data.filter((el) => el.choices_level === subs_level);

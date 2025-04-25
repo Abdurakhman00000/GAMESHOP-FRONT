@@ -16,4 +16,10 @@ export namespace SUBS {
   }[];
 
   type GetSubsServicesRequest = void;
+
+  type InitiatePaymentRequest = void;
+
+  type InitiatePaymentResponse = {
+    paymentUrl: string; 
+  }
 }
