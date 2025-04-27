@@ -100,7 +100,7 @@ const PsPlusPage = () => {
                 isFading={isFading}
               />
             </div>
-            <div>
+            <div>  
               <RightBlock
                 data={filteredData}
                 change_level={handleChangeLevel}
