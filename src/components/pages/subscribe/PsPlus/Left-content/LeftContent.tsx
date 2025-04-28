@@ -1,5 +1,5 @@
 "use client";
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import scss from "./LeftContent.module.scss";
 import Image from "next/image";
 
@@ -8,6 +8,7 @@ interface IProps {
   consoles: number[];
   choices_level: string[];
   change_level: (level: string) => void;
+  change_console: (console: string) => void;
   subs_level: string;
   isFading: boolean;
 }
@@ -17,10 +18,21 @@ const LeftContent: FC<IProps> = ({
   consoles,
   choices_level,
   change_level,
+  change_console,
   subs_level,
   isFading,
 }) => {
-  const [selectedConsole, setSelectedConsole] = useState<string | null>(null);
+  const [selectedConsole, setSelectedConsole] = useState<string>("PS5");
+
+  // Set default console on component mount
+  useEffect(() => {
+    change_console(selectedConsole);
+  }, []);
+
+  const handleConsoleChange = (console: string) => {
+    setSelectedConsole(console);
+    change_console(console);
+  };
 
   return (
     <div className={scss.content}>
@@ -42,13 +54,13 @@ const LeftContent: FC<IProps> = ({
         <div className={scss.console_btn}>
           <button
             className={selectedConsole === "PS4" ? scss.active : ""}
-            onClick={() => setSelectedConsole("PS4")}
+            onClick={() => handleConsoleChange("PS4")}
           >
             PS4
           </button>
           <button
             className={selectedConsole === "PS5" ? scss.active : ""}
-            onClick={() => setSelectedConsole("PS5")}
+            onClick={() => handleConsoleChange("PS5")}
           >
             PS5
           </button>

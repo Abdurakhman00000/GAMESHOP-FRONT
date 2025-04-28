@@ -63,7 +63,7 @@
         transition: color 0.3s, opacity 0.4s ease-in-out;
       }
 
-      &:focus {
+      &:focus, &.selected {
         background: rgb(32, 37, 98);
 
         h6,
@@ -88,6 +88,23 @@
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
+      transition: background-color 0.3s, opacity 0.3s;
+      
+      &:hover {
+        background: rgb(255, 215, 0);
+      }
+      
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      
+      &.disabledButton {
+        opacity: 0.6;
+        cursor: not-allowed;
+        background: #cccccc;
+        color: #666666;
+      }
     }
   }
 }

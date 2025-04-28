@@ -23,19 +23,46 @@ const api = index.injectEndpoints({
       }),
       providesTags: ["subscribe"],
     }),
-    initiatePayment: build.mutation<SUBS.InitiatePaymentResponse, { user_id: number; username: string }>({
+    getToken: build.mutation<
+      { token: string; user_id: number; username: string },
+      { username: string; password: string }
+    >({
+      query: (credentials) => ({
+        url: `/token/`,
+        method: "POST",
+        body: credentials
+      })
+    }),
+    initiatePayment: build.mutation<
+      { payment_url: string },
+      { 
+        subscription_service_id: number;
+        subscription_period_id: number;
+        console_type_id: number;
+        token: string;
+      }
+    >({
       query: (data) => ({
         url: `/payment/initiate/`,
         method: "POST",
-        body: {
-          user_id: data.user_id,
-          username: data.username,
+        headers: {
+          'Authorization': `Token ${data.token}`,
+          'Content-Type': 'application/json'
         },
+        body: {
+          subscription_service_id: data.subscription_service_id,
+          subscription_period_id: data.subscription_period_id,
+          console_type_id: data.console_type_id
+        }
       }),
       invalidatesTags: ["subscribe"]
     }),
-    
   }),
 });
 
-export const { useSubsServicesQuery, useGetSubscribeQuery, useInitiatePaymentMutation } = api;
+export const { 
+  useSubsServicesQuery, 
+  useGetSubscribeQuery, 
+  useGetTokenMutation,
+  useInitiatePaymentMutation 
+} = api;
