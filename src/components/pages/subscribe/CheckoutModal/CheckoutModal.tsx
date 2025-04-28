@@ -1,5 +1,5 @@
 "use client";
-import { FC, useState, useCallback, memo } from "react";
+import { FC, useState, useCallback, memo, MouseEvent } from "react";
 import scss from "./CheckoutModal.module.scss";
 import Image from "next/image";
 import { Period } from "../PsPlus/Right-content/RightContent";
@@ -47,6 +47,13 @@ const CheckoutModal: FC<CheckoutModalProps> = memo(({
   const handlePasswordChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   }, []);
+  
+  // Закрытие модального окна при клике на внешнюю область
+  const handleOverlayClick = useCallback((e: MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  }, [onClose]);
 
   if (!isOpen || !subscriptionData) return null;
 
@@ -54,10 +61,11 @@ const CheckoutModal: FC<CheckoutModalProps> = memo(({
   const formattedPrice = subscriptionData.period.price.split('.')[0];
 
   return (
-    <div className={scss.modalOverlay}>
+    <div className={scss.modalOverlay} onClick={handleOverlayClick}>
       <div className={scss.modalContent}>
         <button className={scss.closeButton} onClick={onClose}>
-          &times;
+          <span className={scss.closeIcon}>&times;</span>
+          <span className={scss.closeText}>Закрыть</span>
         </button>
         
         <h2 className={scss.orderTitle}>Ваш заказ:</h2>
@@ -105,6 +113,7 @@ const CheckoutModal: FC<CheckoutModalProps> = memo(({
               value={username}
               onChange={handleUsernameChange}
               required
+              placeholder="Введите имя пользователя"
             />
           </div>
           
@@ -116,6 +125,7 @@ const CheckoutModal: FC<CheckoutModalProps> = memo(({
               value={password}
               onChange={handlePasswordChange}
               required
+              placeholder="Введите пароль"
             />
           </div>
           
