@@ -47,9 +47,9 @@ const LoginModal: FC<LoginModalProps> = ({
       } else {
         setError("Не удалось получить токен");
       }
-    } catch (err: any) {
+    } catch (err: Error | unknown) {
       console.error("Login error:", err);
-      setError(err.message || "Ошибка при авторизации");
+      setError(err instanceof Error ? err.message : "Ошибка при авторизации");
     }
   };
 

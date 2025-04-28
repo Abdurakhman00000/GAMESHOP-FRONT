@@ -27,7 +27,7 @@ const LeftContent: FC<IProps> = ({
   // Set default console on component mount
   useEffect(() => {
     change_console(selectedConsole);
-  }, []);
+  }, [selectedConsole, change_console]);
 
   const handleConsoleChange = (console: string) => {
     setSelectedConsole(console);

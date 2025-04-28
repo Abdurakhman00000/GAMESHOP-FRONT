@@ -1,11 +1,18 @@
 import { api as index } from "..";
-import { SUBS } from "./types";
+import { 
+  GetSubsServicesResponse, 
+  GetSubsServicesRequest,
+  AuthResponse,
+  AuthRequest,
+  PaymentRequest,
+  PaymentResponse
+} from "./types";
 
 const api = index.injectEndpoints({
   endpoints: (build) => ({
     subsServices: build.query<
-      SUBS.GetSubsServicesResponse,
-      SUBS.GetSubsServicesRequest
+      GetSubsServicesResponse,
+      GetSubsServicesRequest
     >({
       query: () => ({
         url: `/subscription-services`,
@@ -14,8 +21,8 @@ const api = index.injectEndpoints({
       providesTags: ["subsService"],
     }),
     getSubscribe: build.query<
-      SUBS.GetSubsServicesResponse,
-      SUBS.GetSubsServicesRequest
+      GetSubsServicesResponse,
+      GetSubsServicesRequest
     >({
       query: () => ({
         url: `/subscriptions`,
@@ -24,8 +31,8 @@ const api = index.injectEndpoints({
       providesTags: ["subscribe"],
     }),
     getToken: build.mutation<
-      { token: string; user_id: number; username: string },
-      { username: string; password: string }
+      AuthResponse,
+      AuthRequest
     >({
       query: (credentials) => ({
         url: `/token/`,
@@ -34,13 +41,8 @@ const api = index.injectEndpoints({
       })
     }),
     initiatePayment: build.mutation<
-      { payment_url: string },
-      { 
-        subscription_service_id: number;
-        subscription_period_id: number;
-        console_type_id: number;
-        token: string;
-      }
+      PaymentResponse,
+      PaymentRequest
     >({
       query: (data) => ({
         url: `/payment/initiate/`,

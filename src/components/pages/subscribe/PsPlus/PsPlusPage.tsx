@@ -7,7 +7,7 @@ import LeftContent from "./Left-content/LeftContent";
 import RightContent from "./Right-content/RightContent";
 import BottomContent from "./Bottom-content/BottomContent";
 import { useSubsServicesQuery } from "@/redux/api/subs-data";
-import { SUBS } from "@/redux/api/subs-data/types";
+import { GetSubsServicesResponse, SubscriptionService } from "@/redux/api/subs-data/types";
 
 interface Period {
   id: number;
@@ -16,7 +16,7 @@ interface Period {
 }
 
 interface ITypesBlocks {
-  data: SUBS.GetSubsServicesResponse | null;
+  data: GetSubsServicesResponse | null;
   change_level: (level: string) => void;
   change_console: (console: string) => void;
   subs_level: string;
@@ -24,7 +24,7 @@ interface ITypesBlocks {
   isFading: boolean;
 }
 
-const transformPeriods = (periods: any[]): Period[] => 
+const transformPeriods = (periods: Period[]): Period[] => 
   periods.map((period, index) => ({
     id: period.id || index + 1,
     months: period.months,
@@ -42,7 +42,7 @@ const getConsoleTypeId = (consoleName: string): number => {
 
 const LeftBlock: FC<ITypesBlocks> = memo(({ data }) => (
   <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-    {data?.map((el) => (
+    {data?.map((el: SubscriptionService) => (
       <div key={el.id} className={scss.left_content}>
         <Image
           src={psImage}
@@ -63,7 +63,7 @@ LeftBlock.displayName = "LeftBlock";
 const RightBlock: FC<ITypesBlocks> = memo(
   ({ data, change_level, change_console, subs_level, selected_console, isFading }) => (
     <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-      {data?.map((el) => (
+      {data?.map((el: SubscriptionService) => (
         <div key={el.id} className={scss.right_content}>
           <div className={scss.block_content}>
             <LeftContent
@@ -115,7 +115,7 @@ const PsPlusPage = () => {
   }, []);
 
   const filteredData = useMemo(() => 
-    data?.filter((el) => el.choices_level === subs_level) || [],
+    data?.filter((el: SubscriptionService) => el.choices_level === subs_level) || [],
   [data, subs_level]);
 
   if (isLoading || !data) {

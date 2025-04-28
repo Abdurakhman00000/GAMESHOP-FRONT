@@ -155,10 +155,10 @@ const RightContent = ({
       } else {
         throw new Error("Не удалось получить ссылку для оплаты");
       }
-    } catch (err: any) {
+    } catch (err: Error | unknown) {
       console.error("Ошибка платежа:", err);
-      setError(err.message || "Неизвестная ошибка");
-      alert("Ошибка: " + (err.message || "Неизвестная ошибка"));
+      setError(err instanceof Error ? err.message : "Неизвестная ошибка");
+      alert("Ошибка: " + (err instanceof Error ? err.message : "Неизвестная ошибка"));
     } finally {
       setIsLoading(false);
     }
